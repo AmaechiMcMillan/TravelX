@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const ADD_PROFILE = gql`
   mutation addProfile($name: String!, $email: String!, $password: String!) {
@@ -12,12 +12,12 @@ export const ADD_PROFILE = gql`
   }
 `;
 
-export const ADD_SKILL = gql`
-  mutation addSkill($profileId: ID!, $skill: String!) {
-    addSkill(profileId: $profileId, skill: $skill) {
+export const ADD_TRIP = gql`
+  mutation addTrip($profileId: ID!, $trip: String!) {
+    addTrip(profileId: $profileId, trip: $trip) {
       _id
       name
-      skills
+      trips
     }
   }
 `;
@@ -34,12 +34,12 @@ export const LOGIN_USER = gql`
   }
 `;
 
-export const REMOVE_SKILL = gql`
-  mutation removeSkill($skill: String!) {
-    removeSkill(skill: $skill) {
+export const REMOVE_TRIP = gql`
+  mutation removeTrip($trip: String!) {
+    removeTrip(trip: $trip) {
       _id
       name
-      skills
+      trips
     }
   }
 `;
