@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Profile {
@@ -7,6 +7,14 @@ const typeDefs = gql`
     email: String
     password: String
     skills: [String]!
+  }
+
+  type Trip {
+    _id: ID
+    adults: Int!
+    origin: String!
+    destination: String!
+    departureDate: Date!
   }
 
   type Auth {
