@@ -7,11 +7,17 @@ const options = {
 };
 // import axios from 'axios';
 
-const search = async () => {
-  // axios.get(`http://www.omdbapi.com/?apikey=trilogy&t=${query}&rating=pg`);
+// const search = async () => {
+//   // axios.get(`http://www.omdbapi.com/?apikey=trilogy&t=${query}&rating=pg`);
+//   return fetch(
+//     "https://skyscanner44.p.rapidapi.com/autocomplete?query=Dallas",
+//     options
+//   ).then((response) => response.json());
+// };
+// export default { search };
+
+export const searchFlights = (query) => {
   return fetch(
-    "https://skyscanner44.p.rapidapi.com/autocomplete?query=Dallas",
-    options
+    `https://skyscanner44.p.rapidapi.com/autocomplete?q=${query}`
   ).then((response) => response.json());
 };
-export default { search };

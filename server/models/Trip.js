@@ -14,7 +14,7 @@ const tripSchema = new Schema({
     required: true,
   },
   departureDate: {
-    type: Date(YYYY - MM - DD),
+    type: Date,
     required: true,
   },
 });
