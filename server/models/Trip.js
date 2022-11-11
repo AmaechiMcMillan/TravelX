@@ -17,6 +17,10 @@ const tripSchema = new Schema({
     type: Date,
     required: true,
   },
+  returnDate: {
+    type: Date,
+    required: true,
+  },
 });
 
 const Trip = model("Trip", tripSchema);

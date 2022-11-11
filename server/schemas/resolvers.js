@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Profile } = require("../models");
+const { Profile, Trip } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -48,8 +48,8 @@ const resolvers = {
     addTrip: async (parent, { profileId, trip }, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       if (context.user) {
-        return Profile.findOneAndUpdate(
-          { _id: profileId },
+        return Trip.findOneAndUpdate(
+          { _id: tripId },
           {
             $addToSet: { trips: trip },
           },
@@ -72,7 +72,7 @@ const resolvers = {
     // Make it so a logged in user can only remove a trip from their own profile
     removeTrip: async (parent, { trip }, context) => {
       if (context.user) {
-        return Profile.findOneAndUpdate(
+        return Trip.findOneAndUpdate(
           { _id: context.user._id },
           { $pull: { trips: trip } },
           { new: true }
