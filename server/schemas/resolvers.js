@@ -45,17 +45,30 @@ const resolvers = {
     },
 
     // Add a third argument to the resolver to access data in our `context`
-    addTrip: async (parent, { profileId, trip }, context) => {
+    addTrip: async (parent, args, context) => {
+      console.log(context.user);
+      console.log(args);
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       if (context.user) {
-        return Trip.findOneAndUpdate(
-          { _id: tripId },
+        let newTrip = {
+          adults: args.adults,
+          origin: args.origin,
+          destination: args.destination,
+          departureDate: args.departureDate,
+          returnDate: args.returnDate,
+        };
+        const savedTrip = await Trip.create(newTrip);
+
+        return Profile.findOneAndUpdate(
+          { _id: context.user._id },
           {
-            $addToSet: { trips: trip },
+            $addToSet: {
+              trip: savedTrip,
+            },
           },
           {
             new: true,
-            runValidators: true,
+            // runValidators: true,
           }
         );
       }
