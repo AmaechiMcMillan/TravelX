@@ -13,11 +13,24 @@ export const ADD_PROFILE = gql`
 `;
 
 export const ADD_TRIP = gql`
-  mutation addTrip($profileId: ID!, $trip: String!) {
-    addTrip(profileId: $profileId, trip: $trip) {
+  mutation AddTrip(
+    $adults: Int!
+    $origin: String!
+    $destination: String!
+    $departureDate: String!
+    $returnDate: String!
+  ) {
+    addTrip(
+      adults: $adults
+      origin: $origin
+      destination: $destination
+      departureDate: $departureDate
+      returnDate: $returnDate
+    ) {
       _id
+      email
       name
-      trips
+      trip
     }
   }
 `;
@@ -39,7 +52,7 @@ export const REMOVE_TRIP = gql`
     removeTrip(trip: $trip) {
       _id
       name
-      trips
+      trip
     }
   }
 `;

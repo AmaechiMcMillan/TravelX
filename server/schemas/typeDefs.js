@@ -15,6 +15,7 @@ const typeDefs = gql`
     origin: String!
     destination: String!
     departureDate: String!
+    returnDate: String!
   }
 
   type Auth {
@@ -33,7 +34,13 @@ const typeDefs = gql`
     addProfile(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
 
-    addTrip(profileId: ID!, trip: String!): Profile
+    addTrip(
+      adults: Int!
+      origin: String!
+      destination: String!
+      departureDate: String!
+      returnDate: String!
+    ): Profile
     removeProfile: Profile
     removeTrip(trip: String!): Profile
   }

@@ -1,0 +1,24 @@
+[
+    {
+      "adults": 2,
+      "origin": "DFW",
+      "destination": "ABI",
+      "departureDate": "2022-12-20",
+      "returnDate": "2022-12-28"
+    },
+    {
+      "adults": 1,
+      "origin": "AUS",
+      "destination": "BWI",
+      "departureDate": "2022-11-20",
+      "returnDate": "2022-12-04"
+    },
+    {
+      "adults": 4,
+      "origin": "BOS",
+      "destination": "CLD",
+      "departureDate": "2022-11-16",
+      "returnDate": "2022-11-29"
+    }
+   
+]
