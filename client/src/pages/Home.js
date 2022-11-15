@@ -1,9 +1,9 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
+import React from "react";
+import { useQuery } from "@apollo/client";
 
-import ProfileList from '../components/ProfileList';
+import ProfileList from "../components/ProfileList";
 
-import { QUERY_PROFILES } from '../utils/queries';
+import { QUERY_PROFILES } from "../utils/queries";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_PROFILES);
@@ -16,12 +16,16 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ProfileList
-              profiles={profiles}
-              title="Here's the current roster of friends..."
-            />
+            <ProfileList profiles={profiles} title="Here is your trip..." />
           )}
         </div>
+        <section class="section">
+          <h1 class="title">Section</h1>
+          <h2 class="subtitle">
+            A simple container to divide your page into{" "}
+            <strong>sections</strong>, like the one you're currently reading.
+          </h2>
+        </section>
       </div>
     </main>
   );

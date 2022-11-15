@@ -1,25 +1,30 @@
 const { Schema, model } = require("mongoose");
+const Profile = require("./Profile");
 
 const tripSchema = new Schema({
   adults: {
     type: Number,
-    required: true,
+    // required: true,
   },
   origin: {
     type: String,
-    required: true,
+    // required: true,
   },
   destination: {
     type: String,
-    required: true,
+    // required: true,
   },
   departureDate: {
-    type: Date,
-    required: true,
+    type: String,
+    // required: true,
   },
   returnDate: {
-    type: Date,
-    required: true,
+    type: String,
+    // required: true,
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "Profile",
   },
 });
 

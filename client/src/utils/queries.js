@@ -5,7 +5,14 @@ export const QUERY_PROFILES = gql`
     profiles {
       _id
       name
-      trip
+      trip {
+        _id
+        adults
+        origin
+        destination
+        departureDate
+        returnDate
+      }
     }
   }
 `;
@@ -15,7 +22,14 @@ export const QUERY_SINGLE_PROFILE = gql`
     profile(profileId: $profileId) {
       _id
       name
-      trip
+      trip {
+        _id
+        adults
+        origin
+        destination
+        departureDate
+        returnDate
+      }
     }
   }
 `;
@@ -25,7 +39,27 @@ export const QUERY_ME = gql`
     me {
       _id
       name
-      trip
+      trip {
+        _id
+        adults
+        origin
+        destination
+        departureDate
+        returnDate
+      }
+    }
+  }
+`;
+
+export const QUERY_USERTRIPS = gql`
+  query UserTrips($userId: ID!) {
+    userTrips(userId: $userId) {
+      _id
+      adults
+      origin
+      destination
+      departureDate
+      returnDate
     }
   }
 `;
