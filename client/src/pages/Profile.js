@@ -6,7 +6,11 @@ import { useQuery } from "@apollo/client";
 import TripList from "../components/TripList";
 import TripForm from "../components/TripForm";
 
-import { QUERY_SINGLE_PROFILE, QUERY_ME } from "../utils/queries";
+import {
+  QUERY_SINGLE_PROFILE,
+  QUERY_ME,
+  QUERY_USERTRIPS,
+} from "../utils/queries";
 
 import Auth from "../utils/auth";
 
@@ -21,9 +25,14 @@ const Profile = () => {
     }
   );
 
+  // const { loading: loading2, data: data2 } = useQuery(QUERY_USERTRIPS, {
+  //   variables: { profileId: profileId },
+  // });
+  // console.log(data);
+
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
   const profile = data?.me || data?.profile || {};
-
+  console.log(profile);
   // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
     return <Navigate to="/me" />;
@@ -40,13 +49,17 @@ const Profile = () => {
           You need to be logged in to see your profile page. Use the navigation
           links above to sign up or log in!
         </h4>
-        <TripForm />
-        <TripList />
+        {/* <TripForm />
+        <TripList /> */}
       </>
     );
   }
 
-  return <div></div>;
+  return (
+    <div>
+      <h4>working</h4>
+    </div>
+  );
 };
 
 export default Profile;

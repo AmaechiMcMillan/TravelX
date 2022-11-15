@@ -18,6 +18,15 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    userTrips: async (parent, args, context) => {
+      if (context.user) {
+        return Trip.find({ userId: context.user._id });
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    trips: async () => {
+      return Trip.find();
+    },
   },
 
   Mutation: {
@@ -56,6 +65,7 @@ const resolvers = {
           destination: args.destination,
           departureDate: args.departureDate,
           returnDate: args.returnDate,
+          userId: context.user._id,
         };
         const savedTrip = await Trip.create(newTrip);
 

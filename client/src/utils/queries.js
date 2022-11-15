@@ -29,3 +29,16 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_USERTRIPS = gql`
+  query UserTrips($userId: ID!) {
+    userTrips(userId: $userId) {
+      _id
+      adults
+      origin
+      destination
+      departureDate
+      returnDate
+    }
+  }
+`;
