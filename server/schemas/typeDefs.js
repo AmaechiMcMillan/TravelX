@@ -43,7 +43,7 @@ const typeDefs = gql`
       destination: String
       departureDate: String
       returnDate: String
-      userId: ID!
+      _id: ID!
     ): Profile
     removeProfile: Profile
     removeTrip(trip: String!): Profile

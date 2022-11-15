@@ -1,13 +1,14 @@
 import { useQuery } from "@apollo/react-hooks";
 import React from "react";
 import { Link } from "react-router-dom";
+
 import { QUERY_PROFILES } from "../../utils/queries";
 
 const ProfileList = ({ profiles, title }) => {
-  profiles = useQuery(QUERY_PROFILES);
-  if (!profiles.length) {
-    return <h3>No Profiles Yet</h3>;
-  }
+  // profiles = useQuery(QUERY_PROFILES);
+  // if (!profiles.length) {
+  //   return <h3>No Profiles Yet</h3>;
+  // }
 
   return (
     <div>
@@ -20,8 +21,8 @@ const ProfileList = ({ profiles, title }) => {
                 <h4 className="card-header bg-dark text-light p-2 m-0">
                   {profile.name} <br />
                   <span className="text-white" style={{ fontSize: "1rem" }}>
-                    currently has {profile.trips ? profile.trips.length : 0}{" "}
-                    endorsed skill
+                    has {profile.trips ? profile.trips.length : 0} trip(s)
+                    planned.
                     {profile.trips && profile.trips.length === 1 ? "" : "s"}
                   </span>
                 </h4>
@@ -30,7 +31,7 @@ const ProfileList = ({ profiles, title }) => {
                   className="btn btn-block btn-squared btn-light text-dark"
                   to={`/profiles/${profile._id}`}
                 >
-                  View and endorse their trips.
+                  View your trips.
                 </Link>
               </div>
             </div>
